@@ -30,3 +30,4 @@ while [ "$SIZE1" -eq "$SIZE2" ]; do
 done
 
 notify -t "$SUCCESS"
+notify -u $NOTIFYKEY
