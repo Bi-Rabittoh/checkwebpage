@@ -2,15 +2,19 @@
 #Before you run this script, make sure wget is installed and check https://github.com/mashlol/notify
 
 #ADD NOTIFY KEY HERE
-notify -r insertkeyhere
+NOTIFYKEY=insertNotifyKeyHere
 
 #EDIT LINK OF THE WEBPAGE TO CHECK
-LINK=insertlinkhere
+LINK=insertLinkHere
 
 #YOU CAN EDIT THE INTERVAL, I SET IT TO 300s = 5 minutes
 INTERVAL=300
 
+#INSERT YOUR SUCCESS TEXT HERE, THIS WILL APPEAR IN YOUR NOTIFICATION
+SUCCESS="The webpage was edited!"
 
+
+notify -r $NOTIFYKEY
 wget -O temp $LINK --quiet
 SIZE1=$(stat -c%s "temp")
 rm temp
@@ -25,4 +29,4 @@ while [ "$SIZE1" -eq "$SIZE2" ]; do
 	let I=I+1
 done
 
-notify -t "Sono usciti i risultati di Analisi II!"
+notify -t "$SUCCESS"
